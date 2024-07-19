@@ -18,8 +18,8 @@ export default function App() {
       .then(res => res.json())
       .then(data => {
         const processedQuestions = data.results.map((question, index) => {
-          const allAnswers = [...question.incorrect_answers, question.correct_answer];
-          const shuffledAnswers = shuffleArray(allAnswers);
+          const allAnswers = [...question.incorrect_answers, question.correct_answer]
+          const shuffledAnswers = shuffleArray(allAnswers)
           return {
             ...question,
             allAnswers: shuffledAnswers,
@@ -28,9 +28,9 @@ export default function App() {
             id: index  
           };
         });
-        setQuizQuestions(processedQuestions);
+        setQuizQuestions(processedQuestions)
       });
-  }, [quizStarted]);
+  }, [quizStarted])
 
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -42,11 +42,10 @@ export default function App() {
     
     function startQuiz() {
         setQuizStarted(true)
-        console.log(quizQuestions);
     }
     
     function selectAnswer(answer, questionId, e) {
-    e.preventDefault();
+    e.preventDefault()
     
   
 
